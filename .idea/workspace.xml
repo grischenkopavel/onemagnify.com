@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1c57417-50d5-487e-a837-a92b6f7adba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/cvc/CvcExampleTest.java" afterDir="false" />
+    <list default="true" id="f1c57417-50d5-487e-a837-a92b6f7adba6" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/ApiDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/GetWebsiteResponseDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/cvc/CustomerDealerDirectoryDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cvc/CvcExampleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cvc/CvcExampleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HxRBayWSaGxmR5Y2JlurAxN0y6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -41,35 +42,23 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.CvcExampleTest.compareNumberOfActiveCvcDealers">
-    <configuration name="CvcExampleTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="api" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.ApiDemo.getMinimumServiceHour (4)">
+    <configuration name="ApiDemo.getMinimumServiceHour (1)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cvc.*" />
+          <option name="PATTERN" value="api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CvcExampleTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CvcExampleTest.compareNumberOfActiveCvcDealers (2)" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="onemagnify.com" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cvc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CvcExampleTest" />
-      <option name="METHOD_NAME" value="compareNumberOfActiveCvcDealers" />
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.ApiDemo" />
+      <option name="METHOD_NAME" value="getMinimumServiceHour" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -77,17 +66,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CvcExampleTest.compareNumberOfActiveCvcDealers (3)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiDemo.getMinimumServiceHour (2)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cvc.*" />
+          <option name="PATTERN" value="api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CvcExampleTest" />
-      <option name="METHOD_NAME" value="compareNumberOfActiveCvcDealers" />
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.ApiDemo" />
+      <option name="METHOD_NAME" value="getMinimumServiceHour" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -95,17 +84,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CvcExampleTest.compareNumberOfActiveCvcDealers (4)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiDemo.getMinimumServiceHour (3)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cvc.*" />
+          <option name="PATTERN" value="api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CvcExampleTest" />
-      <option name="METHOD_NAME" value="compareNumberOfActiveCvcDealers" />
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.ApiDemo" />
+      <option name="METHOD_NAME" value="getMinimumServiceHour" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -113,17 +102,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CvcExampleTest.compareNumberOfActiveCvcDealers" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiDemo.getMinimumServiceHour (4)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cvc.*" />
+          <option name="PATTERN" value="api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CvcExampleTest" />
-      <option name="METHOD_NAME" value="compareNumberOfActiveCvcDealers" />
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.ApiDemo" />
+      <option name="METHOD_NAME" value="getMinimumServiceHour" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiDemo.getMinimumServiceHour" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="onemagnify.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.ApiDemo" />
+      <option name="METHOD_NAME" value="getMinimumServiceHour" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -133,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.CvcExampleTest.compareNumberOfActiveCvcDealers" />
-        <item itemvalue="TestNG.CvcExampleTest.compareNumberOfActiveCvcDealers (4)" />
-        <item itemvalue="TestNG.CvcExampleTest" />
-        <item itemvalue="TestNG.CvcExampleTest.compareNumberOfActiveCvcDealers (3)" />
-        <item itemvalue="TestNG.CvcExampleTest.compareNumberOfActiveCvcDealers (2)" />
+        <item itemvalue="TestNG.ApiDemo.getMinimumServiceHour (4)" />
+        <item itemvalue="TestNG.ApiDemo.getMinimumServiceHour (3)" />
+        <item itemvalue="TestNG.ApiDemo.getMinimumServiceHour (2)" />
+        <item itemvalue="TestNG.ApiDemo.getMinimumServiceHour (1)" />
+        <item itemvalue="TestNG.ApiDemo.getMinimumServiceHour" />
       </list>
     </recent_temporary>
   </component>
@@ -150,6 +157,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669224617710</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1669980278532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669980278532</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,5 +177,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

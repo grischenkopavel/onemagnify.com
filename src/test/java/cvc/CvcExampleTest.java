@@ -4,6 +4,7 @@ Created by Pavel Gryshchenko on 23.11.2022
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.conditions.Visible;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -20,29 +21,17 @@ public class CvcExampleTest {
     void before() {
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000; // default 4000 ms
-        open("https://fordcommercialvehiclecenter.com/");
+        open("https://cvcqa.dealerconnection.com/home/init");
     }
 
     @Test
     void compareNumberOfActiveCvcDealers() throws InterruptedException, NumberFormatException {
-        $(By.xpath("//img[contains(@id, 'CurrentLocationDesktop')]"))
-                .shouldBe(visible)
-                .shouldHave(attribute("tagName"))
-                .click();
+        $(By.id("userName")).setValue("p-grisc6");
+        $(By.id("password")).setValue("R32022mPE6t#");
+        $(By.id("btn-sign-in")).click();
 
-//        SelenideElement totalDealerCountById = $(By.id("totalDealerCount"))
-//                .shouldHave(attribute("outerText"));
-//        System.out.println(totalDealerCountById.getText());
-
-        SelenideElement totalDealerCount = $(By.xpath("//div[contains(@id, 'totalDealerCount')]"))
-                .shouldBe(visible)
-                .shouldHave(attribute("outerText"));
-        String totalDealerCountText = totalDealerCount.getAttribute("outerText").trim();
-        System.out.println("totalDealerCountText = " + totalDealerCountText);
-
-        int totalDealerNumber = Integer.parseInt(totalDealerCountText.replaceAll("\\D", ""));
-        System.out.println("\n Int totalDealerNumber = " + totalDealerNumber);
-        System.out.println(totalDealerNumber);
+        $(By.id("//ul[contains(@id, 'top-level-nav')]//a[contains(text(),'REPORTS')]")).shouldBe(visible);
+        //$(By.xpath("//a[contains(@href,'/reports/init')]")).click();
         TimeUnit.SECONDS.sleep(3);
     }
 }
