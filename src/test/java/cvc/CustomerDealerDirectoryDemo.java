@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -20,19 +21,42 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class CustomerDealerDirectoryDemo {
     private final int EXPECTED_TOTAL_DEALER_NUMBER = 662;
+    private final String CUSTOMER_DD_URL = "https://fordcommercialvehiclecenter.com/";
     private final String EXPECTED_SHOPPING_TOOLS_URL = "https://www.fordupfits.com/commercial/commercial-shopping-tools";
+    private final String EXPECTED_TOP_CONTACT_EMAIL = "CVCHQ@FordProgramHQ.com";
+    private final String EXPECTED_TOP_CONTACT_PHONE = "1-888-276-4088";
     @BeforeMethod
     void before() {
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000; // default 4000 ms
-        open("https://fordcommercialvehiclecenter.com/");
+        open(CUSTOMER_DD_URL);
     }
-    @Test (enabled = true)
+    @DataProvider(name = "dealers")
+    public Object[][] dataProviderMethod(){
+        return new Object[][] {{"DON SANDERSON FORD"},
+                {"CHRIS AUFFENBERG FORD"},
+                {"90210"}};
+    }
+    @Test (enabled = true, groups = {"regression", "demo"}, description = "Check if cvc logo display on homepage")
     void checkCVCLogo(){
         SelenideElement mainCvcLogo = $(By.xpath("//div[contains(@class, 'showForDesktop')]//img[contains(@class, 'center')]"));
         Assert.assertTrue(mainCvcLogo.isDisplayed(), "Logo doesn't appear");
     }
-    @Test (enabled = true)
+    @Test (enabled = true, groups = {"regression", "demo"}, description = "Check correct contact info display on top")
+    void checkTopContactInfo(){
+        SelenideElement topContactInfo = $(By.xpath("//div[contains(@id, 'contactInfoTop')]//p"));
+        String topContactInfoText = topContactInfo.getText();
+        Assert.assertTrue(topContactInfoText.contains(EXPECTED_TOP_CONTACT_PHONE), "Top contact phone is wrong");
+        Assert.assertTrue(topContactInfoText.contains(EXPECTED_TOP_CONTACT_EMAIL), "Top contact email is wrong");
+    }
+    @Test (enabled = true, groups = {"regression", "demo"}, description = "Check correct contact info display on bottom")
+    void checkBottomContactInfo(){
+        SelenideElement bottomContactInfo = $(By.xpath("//div[contains(@id, 'contactInfoFoot')]//p"));
+        String topContactInfoText = bottomContactInfo.getText();
+        Assert.assertTrue(topContactInfoText.contains(EXPECTED_TOP_CONTACT_PHONE), "Bottom contact phone is wrong");
+        Assert.assertTrue(topContactInfoText.contains(EXPECTED_TOP_CONTACT_EMAIL), "Bottom contact email is wrong");
+    }
+    @Test (enabled = true, groups = {"regression", "demo"})
     void checkCvcLogoForSearch() throws InterruptedException {
         $(By.xpath("//img[contains(@id, 'CurrentLocationDesktop')]"))
                 .shouldBe(visible)
@@ -55,7 +79,7 @@ public class CustomerDealerDirectoryDemo {
         }
         TimeUnit.SECONDS.sleep(4);
     }
-    @Test (enabled = true)
+    @Test (enabled = true, groups = {"regression", "demo"})
     void checkMdLogoForSearch() throws InterruptedException {
         $(By.xpath("//img[contains(@id, 'CurrentLocationDesktop')]"))
                 .shouldBe(visible)
@@ -75,7 +99,7 @@ public class CustomerDealerDirectoryDemo {
         }
         TimeUnit.SECONDS.sleep(4);
     }
-    @Test(enabled = true)
+    @Test(enabled = true, groups = {"regression", "demo"})
     void getNumberOfActiveCvcDealersCustomerDD() throws InterruptedException, NumberFormatException {
         $(By.xpath("//img[contains(@id, 'CurrentLocationDesktop')]"))
                 .shouldBe(visible)
@@ -91,7 +115,7 @@ public class CustomerDealerDirectoryDemo {
         Assert.assertEquals(totalDealerNumber, EXPECTED_TOTAL_DEALER_NUMBER, "mismatch of active cvc dealers");
         TimeUnit.SECONDS.sleep(2);
     }
-    @Test
+    @Test(enabled = true, groups = {"regression", "demo"})
     void checkShoppingToolsLinkRedirection() throws InterruptedException {
         $(By.id("shoppingToolsMenu")).shouldBe(visible).click();
         TimeUnit.SECONDS.sleep(2);
@@ -99,7 +123,7 @@ public class CustomerDealerDirectoryDemo {
         System.out.println(currentUrl);
         Assert.assertEquals(currentUrl, EXPECTED_SHOPPING_TOOLS_URL, "ShoppingToolsLinkRedirection is wrong");
     }
-    @Test
+    @Test(enabled = true, groups = {"regression", "demo"})
     void checkSignUp() throws InterruptedException {
         $(By.id("stayConnectedMenu")).shouldBe(visible).click();
         $(By.id("firstName")).shouldBe(visible).setValue("QA");
@@ -115,9 +139,9 @@ public class CustomerDealerDirectoryDemo {
 
         Assert.assertTrue(userSuccessRegisterMessage.getText().contains("Automation@email.com"), "SuccessRegister Message do not contain email");
     }
-    @Test(enabled = false)
-    void checkDealerSearch() throws InterruptedException {
-        $(By.id("searchDealerLocation")).shouldBe(visible).setValue("DON SANDERSON FORD").click();
+    @Test(enabled = true, groups = {"regression", "demo"}, dataProvider = "dealers")
+    void checkDealerSearch(String input) throws InterruptedException {
+        $(By.id("searchDealerLocation")).shouldBe(visible).setValue(input);
         TimeUnit.SECONDS.sleep(2);
         //Assert.assertEquals(currentUrl, EXPECTED_SHOPPING_TOOLS_URL, "ShoppingToolsLinkRedirection is wrong");
     }

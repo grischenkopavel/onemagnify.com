@@ -6,14 +6,20 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class GetWebsiteResponseDemo {
-        @Test
-        public void GetUrlResponse()
+    @DataProvider(name = "urls")
+    public Object[][] dataProviderMethod(){
+        return new Object[][] {{"https://fordcommercialvehiclecenter.com/"},
+                {"https://qa.marketingselfserve.com/"},{"https://cvcqa2.dealerconnection.com/"}};
+    }
+        @Test(enabled = true, groups = {"regression", "demo"}, dataProvider = "urls", description = "Check response code")
+        public void GetUrlResponse(String url)
         {
             // Specify the base URL to the RESTful web service
-            RestAssured.baseURI = "https://fordcommercialvehiclecenter.com/";
+            RestAssured.baseURI = url;
             // Get the RequestSpecification of the request to be sent to the server
             RequestSpecification httpRequest = RestAssured.given();
 

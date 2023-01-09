@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Http">
+    <test name="GetHttpResponse">
+        <classes>
+            <class name="api.GetWebsiteResponseDemo"/>
+        </classes>
+    </test>
+</suite>

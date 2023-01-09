@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="DB_Regression">
+    <test name="CustomerRegression">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="cvc.CustomerDealerDirectoryDemo"/>
+        </classes>
+    </test>
+    <test name="GetHttpResponse">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="api.GetWebsiteResponseDemo"/>
+        </classes>
+    </test>
+</suite>
