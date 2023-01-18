@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1c57417-50d5-487e-a837-a92b6f7adba6" name="Changes" comment="om_1">
-      <change afterPath="$PROJECT_DIR$/src/test/java/cvc/CanadaCustomerDealerDirectory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/cvc/CbmFieldPortal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/db/oracle/oracle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/file_operations/cvs/cvsReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/mainantanance/MarketingSelfServe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/test_suites/DB_Regression.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/test_suites/HttpResponce.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/test_suites/Regression.xml" afterDir="false" />
+    <list default="true" id="f1c57417-50d5-487e-a837-a92b6f7adba6" name="Changes" comment="om_2">
+      <change afterPath="$PROJECT_DIR$/src/test/java/cvc/NonCvcDealerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/maintenance/MarketingSelfServe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/test_suites/MarketingSelfServe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/GetWebsiteResponseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/GetWebsiteResponseDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/cvc/CustomerDealerDirectoryDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cvc/CustomerDealerDirectoryDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mainantanance/MarketingSelfServe.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +40,14 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/grisc/IdeaProjects/onemagnify.com/src/test/java/test_suites",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/grisc/IdeaProjects/onemagnify.com/src/test/java/test_suites&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\grisc\IdeaProjects\onemagnify.com\src\test\java\test_suites" />
@@ -61,17 +56,17 @@
       <recent name="api" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MarketingSelfServe">
-    <configuration name="CbmFieldPortal" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.GetWebsiteResponseDemo">
+    <configuration name="GetWebsiteResponseDemo" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cvc.*" />
+          <option name="PATTERN" value="api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CbmFieldPortal" />
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.GetWebsiteResponseDemo" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -79,36 +74,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerDealerDirectoryDemo.checkBottomContactInfo" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MarketingSelfServe (2)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cvc.*" />
+          <option name="PATTERN" value="mainantanance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CustomerDealerDirectoryDemo" />
-      <option name="METHOD_NAME" value="checkBottomContactInfo" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CustomerDealerDirectoryDemo.checkTopContactInfo" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="onemagnify.com" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cvc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cvc" />
-      <option name="MAIN_CLASS_NAME" value="cvc.CustomerDealerDirectoryDemo" />
-      <option name="METHOD_NAME" value="checkTopContactInfo" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PACKAGE_NAME" value="mainantanance" />
+      <option name="MAIN_CLASS_NAME" value="mainantanance.MarketingSelfServe" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -119,12 +95,12 @@
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mainantanance.*" />
+          <option name="PATTERN" value="maintenance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="mainantanance" />
-      <option name="MAIN_CLASS_NAME" value="mainantanance.MarketingSelfServe" />
+      <option name="MAIN_CLASS_NAME" value="maintenance.MarketingSelfServe" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -132,17 +108,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MarketingSelfServe.checkFirstLibraryElement" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MarketingSelfServe.checkAssetActivityReport" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="onemagnify.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mainantanance.*" />
+          <option name="PATTERN" value="maintenance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="mainantanance" />
-      <option name="MAIN_CLASS_NAME" value="mainantanance.MarketingSelfServe" />
-      <option name="METHOD_NAME" value="checkFirstLibraryElement" />
+      <option name="MAIN_CLASS_NAME" value="maintenance.MarketingSelfServe" />
+      <option name="METHOD_NAME" value="checkAssetActivityReport" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MarketingSelfServe.checkNewlyAddedLibraryElements" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="onemagnify.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="maintenance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mainantanance" />
+      <option name="MAIN_CLASS_NAME" value="maintenance.MarketingSelfServe" />
+      <option name="METHOD_NAME" value="checkNewlyAddedLibraryElements" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MarketingSelfServe.checkNewlyAddedLibraryElements" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="onemagnify.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="maintenance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mainantanance" />
+      <option name="MAIN_CLASS_NAME" value="maintenance.MarketingSelfServe" />
+      <option name="METHOD_NAME" value="checkNewlyAddedLibraryElements" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -152,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GetWebsiteResponseDemo" />
         <item itemvalue="TestNG.MarketingSelfServe" />
-        <item itemvalue="TestNG.MarketingSelfServe.checkFirstLibraryElement" />
-        <item itemvalue="TestNG.CbmFieldPortal" />
-        <item itemvalue="TestNG.CustomerDealerDirectoryDemo.checkBottomContactInfo" />
-        <item itemvalue="TestNG.CustomerDealerDirectoryDemo.checkTopContactInfo" />
+        <item itemvalue="TestNG.MarketingSelfServe.checkNewlyAddedLibraryElements (1)" />
+        <item itemvalue="TestNG.MarketingSelfServe.checkNewlyAddedLibraryElements" />
+        <item itemvalue="TestNG.MarketingSelfServe.checkAssetActivityReport" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671183491478</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="om_2">
+      <created>1673259280450</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673259280450</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,7 +219,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="om_1" />
-    <option name="LAST_COMMIT_MESSAGE" value="om_1" />
+    <MESSAGE value="om_2" />
+    <option name="LAST_COMMIT_MESSAGE" value="om_2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

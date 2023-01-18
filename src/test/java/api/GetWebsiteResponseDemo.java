@@ -11,26 +11,26 @@ import org.testng.annotations.Test;
 
 public class GetWebsiteResponseDemo {
     @DataProvider(name = "urls")
-    public Object[][] dataProviderMethod(){
-        return new Object[][] {{"https://fordcommercialvehiclecenter.com/"},
-                {"https://qa.marketingselfserve.com/"},{"https://cvcqa2.dealerconnection.com/"}};
+    public Object[][] dataProviderMethod() {
+        return new Object[][]{{"https://fordcommercialvehiclecenter.com/"},
+                {"https://qa.marketingselfserve.com/"}, {"https://cvc.dealerconnection.com/"}};
     }
-        @Test(enabled = true, groups = {"regression", "demo"}, dataProvider = "urls", description = "Check response code")
-        public void GetUrlResponse(String url)
-        {
-            // Specify the base URL to the RESTful web service
-            RestAssured.baseURI = url;
-            // Get the RequestSpecification of the request to be sent to the server
-            RequestSpecification httpRequest = RestAssured.given();
 
-            Response response = httpRequest.get("");
-            //response.then().log().all();
-            // Get the status code of the request.
-            //If request is successful, status code will be 200
-            int statusCode = response.getStatusCode();
+    @Test(enabled = true, groups = {"regression", "demo"}, dataProvider = "urls", description = "Check response code")
+    public void GetUrlResponse(String url) {
+        // Specify the base URL to the RESTful web service
+        RestAssured.baseURI = url;
+        // Get the RequestSpecification of the request to be sent to the server
+        RequestSpecification httpRequest = RestAssured.given();
 
-            // Assert that correct status code is returned.
-            Assert.assertEquals(statusCode, 200 ,"InCorrect status code returned");
+        Response response = httpRequest.get("");
+        //response.then().log().all();
+        // Get the status code of the request.
+        //If request is successful, status code will be 200
+        int statusCode = response.getStatusCode();
 
-        }
+        // Assert that correct status code is returned.
+        Assert.assertEquals(statusCode, 200, "InCorrect status code returned");
+
+    }
 }

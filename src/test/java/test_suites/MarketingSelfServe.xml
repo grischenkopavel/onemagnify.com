@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="MarketingSelfServe">
+    <test name="MarketingSelfServe">
+        <groups>
+            <run>
+                <include name="regression"/>
+                <!--                <exclude name="demo"/>-->
+            </run>
+        </groups>
+        <classes>
+            <class name="maintenance.MarketingSelfServe"/>
+        </classes>
+    </test>
+</suite>
