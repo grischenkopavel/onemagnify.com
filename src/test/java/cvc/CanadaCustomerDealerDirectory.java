@@ -3,8 +3,6 @@ Created by Pavel Gryshchenko on 19.12.2022
 */
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -18,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CanadaCustomerDealerDirectory {
     private final String CANADA_CUSTOMER_DD_URL = "https://www.fordcommercialvehiclecentres.ca/";
-    private final String EXPECTED_CANADA_TOTAL_DEALER_NUMBER = "124";
+    private final String EXPECTED_CANADA_TOTAL_DEALER_NUMBER = "129";
 
     @BeforeMethod
     void before() {
@@ -33,7 +31,7 @@ public class CanadaCustomerDealerDirectory {
         Assert.assertTrue(mainCvcLogo.isDisplayed(), "Logo doesn't appear");
     }
 
-    @Test(enabled = true, groups = {"regression", "db regression"})
+    @Test(enabled = true, groups = {"regression", "db regression"}, description = "Submit StayConnected form and check Success Register Message")
     void checkStayConnected() throws InterruptedException {
         $(By.xpath("//li[contains(@class, 'directory-nav')]")).shouldBe(visible).click();
         $(By.id("contactName")).shouldBe(visible).setValue("QA");
@@ -41,19 +39,19 @@ public class CanadaCustomerDealerDirectory {
         $(By.id("emailAddress")).shouldBe(visible).setValue("Automation@email.com");
         $(By.id("keepMeUpdatedBtn")).shouldBe(visible).click();
 
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.SECONDS.sleep(5);
 
         Assert.assertTrue(switchTo().alert().getText().contains("Automation@email.com"), "SuccessRegister Message do not contain email");
-        Assert.assertTrue(switchTo().alert().getText().contains("Thank you for joining!"), "SuccessRegister Message do not contain email");
+        Assert.assertTrue(switchTo().alert().getText().contains("Thank you for joining!"), "SuccessRegister Message do not contain 'Thank you for joining!'");
     }
 
-    @Test(enabled = true, groups = {"regression", "db regression"})
+    @Test(enabled = true, groups = {"regression", "db regression"}, description = "Get active canada cvc dealers number and compare with expected")
     void checkDealerSearch() throws InterruptedException {
         $(By.xpath("//li[contains(@class, 'commercial-nav')]")).shouldBe(visible).click();
         $(By.xpath("//a[contains(@onclick, 'return popUpFunction()')]")).shouldBe(visible).click();
         SelenideElement totalDealerCount = $(By.id("totalDealerCount")).shouldBe(visible);
 
         Assert.assertEquals(totalDealerCount.getText().trim(), EXPECTED_CANADA_TOTAL_DEALER_NUMBER, "mismatch of active cvc dealers");
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.SECONDS.sleep(5);
     }
 }

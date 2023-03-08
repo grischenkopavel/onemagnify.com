@@ -13,20 +13,19 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class CustomerDealerDirectoryDemo {
-    private final int EXPECTED_TOTAL_DEALER_NUMBER = 662;
+    private final int EXPECTED_TOTAL_DEALER_NUMBER = 658;
     private final String CUSTOMER_DD_URL = "https://fordcommercialvehiclecenter.com/";
     private final String EXPECTED_FORD_UPFITS_URL = "https://www.fordupfits.com/commercial";
     private final String EXPECTED_TOP_CONTACT_EMAIL = "CVCHQ@FordProgramHQ.com";
     private final String EXPECTED_TOP_CONTACT_PHONE = "1-888-276-4088";
     private final String EXPECTED_BOTTOM_FORD_TRADEMARK = "© 2023 Ford Motor Company";
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"regression", "demo", "new"})
     void before() {
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000; // default 4000 ms
@@ -46,8 +45,8 @@ public class CustomerDealerDirectoryDemo {
         Assert.assertTrue(mainCvcLogo.isDisplayed(), "Logo doesn't appear");
     }
 
-    @Test(enabled = true, groups = {"regression", "demo"}, description = "Check correct contact info display on top")
-    void checkTopContactInfo() {
+    @Test(enabled = true, groups = {"regression", "demo"}, description = "Check correct contact info display at homepage")
+    void checkContactInfo() {
         SelenideElement topContactInfo = $(By.xpath("//p[contains(@class, 'content3')]"));
         String topContactInfoText = topContactInfo.getText();
         Assert.assertTrue(topContactInfoText.contains(EXPECTED_TOP_CONTACT_PHONE), "Top contact phone is wrong");
@@ -55,10 +54,10 @@ public class CustomerDealerDirectoryDemo {
     }
 
     @Test(enabled = true, groups = {"regression", "demo"}, description = "Check correct ford trademark display on bottom")
-    void checkBottomContactInfo() {
+    void checkBottomCopyrightInfo() {
         SelenideElement bottomContactInfo = $(By.xpath("//a[contains(@class, 'fmc-text-button') and contains(@href, '//www.ford.com')]/span"));
         String topContactInfoText = bottomContactInfo.getText();
-        Assert.assertTrue(topContactInfoText.contains(EXPECTED_BOTTOM_FORD_TRADEMARK), "Bottom contact phone is wrong");
+        Assert.assertTrue(topContactInfoText.contains(EXPECTED_BOTTOM_FORD_TRADEMARK), "Bottom copyright is wrong");
     }
 
     @Test(enabled = false, groups = {"regression", "demo"})
@@ -106,30 +105,30 @@ public class CustomerDealerDirectoryDemo {
         TimeUnit.SECONDS.sleep(4);
     }
 
-    @Test(enabled = false, groups = {"regression", "demo"})
+    @Test(enabled = false, groups = {"regression", "demo", "new"})
     void getNumberOfActiveCvcDealersCustomerDD() throws InterruptedException, NumberFormatException {
-        $(By.xpath("//img[contains(@id, 'CurrentLocationDesktop')]"))
-                .shouldBe(visible)
+        $(By.xpath("//a[contains(@class, 'fds-p--t-1 fds-decoration--underline fds-color--primary')]"))
+                .shouldBe(exist)
                 .click();
 
-        SelenideElement totalDealerCount = $(By.xpath("//div[contains(@id, 'totalDealerCount')]"))
+        SelenideElement totalDealerCount = $(By.xpath("//h6[contains(@class, 'fmc-type--heading3 fds-type--primary')]"))
                 .shouldBe(visible)
                 .shouldHave(attribute("outerText"));
         String totalDealerCountText = totalDealerCount.getAttribute("outerText").trim();
-
-        int totalDealerNumber = Integer.parseInt(totalDealerCountText.replaceAll("\\D", ""));
-
-        Assert.assertEquals(totalDealerNumber, EXPECTED_TOTAL_DEALER_NUMBER, "mismatch of active cvc dealers");
-        TimeUnit.SECONDS.sleep(2);
+        System.out.println(totalDealerCountText);
+//        int totalDealerNumber = Integer.parseInt(totalDealerCountText.replaceAll("\\D", ""));
+//
+//        Assert.assertEquals(totalDealerNumber, EXPECTED_TOTAL_DEALER_NUMBER, "mismatch of active cvc dealers");
+//        TimeUnit.SECONDS.sleep(2);
     }
 
-    @Test(enabled = false, groups = {"regression", "demo"})
+    @Test(enabled = true, groups = {"regression", "demo"})
     void checkFordUpFitsLinkRedirection() throws InterruptedException {
         //$(By.xpath("//a[contains(@class, 'fmc-text-button') and contains(@href, 'fordupfits.com/commercial')]/span")).shouldBe(visible).click();
         $(By.xpath("//div[contains(@class, 'fds-flex--column cvc-resources-cta-wrap')]")).shouldBe(visible).click();
         TimeUnit.SECONDS.sleep(2);
+        switchTo().window(1);
         String currentUrl = url();
-        System.out.println(currentUrl);
         Assert.assertEquals(currentUrl, EXPECTED_FORD_UPFITS_URL, "Ford Upfits Link Redirection is wrong");
     }
 

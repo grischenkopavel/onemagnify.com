@@ -23,7 +23,7 @@ public class ApiDemo {
         Response response = given()
                 .when()
                 .get(URL)
-                .then().log().all()//вывод в консоль
+                .then().log().all()//log to console
                 .body("minimumServiceHour.salesCode", notNullValue())
                 .body("minimumServiceHour.paCode", notNullValue())
                 .body("minimumServiceHour.totalWeeklyServiceHours", notNullValue())
@@ -33,6 +33,6 @@ public class ApiDemo {
         JsonPath jsonPath = response.jsonPath();
         String totalWeeklyServiceHours = jsonPath.get("minimumServiceHour.totalWeeklyServiceHours");
         String requirementStatus = jsonPath.get("minimumServiceHour.requirementStatus");
-        System.out.println(totalWeeklyServiceHours + " " + requirementStatus);
+        System.out.println("Total Weekly Service Hours is " + totalWeeklyServiceHours + "\nMinimum Service Hours requirement status: " + requirementStatus);
     }
 }

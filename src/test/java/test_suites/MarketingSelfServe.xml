@@ -4,7 +4,8 @@
     <test name="MarketingSelfServe">
         <groups>
             <run>
-                <include name="regression"/>
+                <include name="new"/>
+                <!--                <include name="regression"/>-->
                 <!--                <exclude name="demo"/>-->
             </run>
         </groups>

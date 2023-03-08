@@ -10,6 +10,8 @@
         <classes>
             <class name="cvc.CustomerDealerDirectoryDemo"/>
             <class name="cvc.CanadaCustomerDealerDirectory"/>
+            <class name="cvc.CbmFieldPortal"/>
+            <class name="maintenance.MarketingSelfServe"/>
         </classes>
     </test>
     <test name="GetHttpResponse">

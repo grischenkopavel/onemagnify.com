@@ -20,11 +20,11 @@ public class MarketingSelfServe {
 
     @DataProvider(name = "environments")
     public Object[][] dataProviderMethod() {
-        return new Object[][]{{"stage, https://marketingselfserve.com/"},
-                {"prod , https://qa.marketingselfserve.com/"}};
+        return new Object[][]{{"stage, https://qa.marketingselfserve.com/"},
+                {"prod , https://marketingselfserve.com/"}};
     }
 
-    @BeforeTest
+    @BeforeTest(groups = {"regression", "demo", "new"})
     void setUp() {
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 6000; // default 4000 ms
@@ -34,19 +34,32 @@ public class MarketingSelfServe {
         $(By.id("edit-submit")).click();
     }
 
-    @BeforeMethod
+    @BeforeMethod(groups = {"regression", "demo", "new"})
     void goBackToHomePage() {
         open(MSS_URL);
     }
 
-    @Test(enabled = true, groups = {"regression", "demo"}, priority = 1, description = "checkHeaderText")
+    @Test(enabled = true, groups = {"regression"}, priority = 1, description = "checkHeaderText")
     void checkHeaderText() {
         SelenideElement headerText = $(By.xpath("//a[contains(@class, 'header__site-link')]"));
         Assert.assertTrue(headerText.isDisplayed(), "header text issue");
         Assert.assertEquals(headerText.getText(), "Marketing Self-Serve".toUpperCase(), "header text mismatch");
     }
 
-    @Test(enabled = true, groups = {"regression", "demo"}, priority = 2, description = "library check")
+    @Test(enabled = true, groups = {"regression", "new"}, priority = 1, description = "Menu link redirection")
+    void checkMenuLinksRedirection() {
+        $(By.xpath("//a[contains(@title,'Insurance')]")).click();
+
+        SelenideElement insuranceLeftMenu = $(By.xpath("//h2[contains(@class,'block__title block-title')]")).shouldBe(Condition.visible);
+        String insuranceLeftMenuText = insuranceLeftMenu.getText().substring(0, 8);
+
+        SelenideElement insuranceTitle = $(By.id("page-title")).shouldBe(Condition.visible);
+        String insuranceTitleText = insuranceTitle.getText();
+
+        Assert.assertTrue(insuranceTitleText.contains(insuranceLeftMenuText));
+    }
+
+    @Test(enabled = true, groups = {"regression", "demo"}, priority = 2, description = "library check contain at least one element")
     void checkLibrarySize() throws InterruptedException {
         $(By.xpath("//ul[contains(@class, 'menu')]//a[contains(@href, 'categoryID=100048619')]")).shouldBe(Condition.visible).click();
         //TimeUnit.SECONDS.sleep(2);
@@ -57,7 +70,22 @@ public class MarketingSelfServe {
         Assert.assertTrue(libraryElements.size() > 0);
     }
 
-    @Test(enabled = true, groups = {"regression", "demo"}, priority = 2, description = "library check")
+    @Test(enabled = true, groups = {"regression", "demo", "new"}, priority = 3, description = "library. Compare library size with tree")
+    void compareLibrarySizeWithTree() throws InterruptedException {
+        $(By.xpath("//ul[contains(@class, 'menu')]//a[contains(@href, 'categoryID=100048619')]")).shouldBe(Condition.visible).click();
+        //TimeUnit.SECONDS.sleep(2);
+        SelenideElement iFrame = $(By.id("acslibrary-frame"));
+        switchTo().frame(iFrame);
+        $(By.xpath("//div[contains(@class, 'filename')]")).shouldBe(Condition.visible);
+        ElementsCollection libraryElements = $$(By.xpath("//div[contains(@class, 'filename')]"));
+        System.out.println("libraryElements.size(): " + libraryElements.size());
+        SelenideElement treeElement = $(By.xpath("//div[contains(@id,'ext-gen27')]//b/i"));
+        String assetsNumber = String.valueOf(treeElement.getText().trim().split("\\d+"));
+        System.out.println("assetsNumber: " + assetsNumber);
+        //Assert.assertTrue(libraryElements.size() > 0);
+    }
+
+    @Test(enabled = true, groups = {"regression", "demo"}, priority = 2, description = "library. At least one newly added element")
     void checkNewlyAddedLibraryElements() throws InterruptedException {
         $(By.xpath("//ul[contains(@class, 'menu')]//a[contains(@href, 'categoryID=100048619')]")).shouldBe(Condition.visible).click();
         //TimeUnit.SECONDS.sleep(2);
@@ -69,7 +97,7 @@ public class MarketingSelfServe {
         Assert.assertTrue(libraryNewAddedElements.size() > 0);
     }
 
-    @Test(enabled = true, groups = {"regression", "demo"}, priority = 3, description = "Run Asset activity report")
+    @Test(enabled = true, groups = {"regression", "demo"}, priority = 4, description = "Run Asset activity report")
     void checkAssetActivityReport() throws InterruptedException {
         $(By.xpath("//li[contains(@class, 'last expanded')]")).shouldBe(Condition.visible).click();
         SelenideElement iFrame = $(By.id("acslibrary-frame"));

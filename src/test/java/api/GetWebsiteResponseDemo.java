@@ -13,7 +13,7 @@ public class GetWebsiteResponseDemo {
     @DataProvider(name = "urls")
     public Object[][] dataProviderMethod() {
         return new Object[][]{{"https://fordcommercialvehiclecenter.com/"},
-                {"https://qa.marketingselfserve.com/"}, {"https://cvc.dealerconnection.com/"}};
+                {"https://cvcqa2.dealerconnection.com/"}, {"https://cvc.dealerconnection.com/"}, {"https://mbstarrewards.com/"}};
     }
 
     @Test(enabled = true, groups = {"regression", "demo"}, dataProvider = "urls", description = "Check response code")
